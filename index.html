@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>军工保密资格认定填报系统</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/antd.min.css">
+    <!-- Scripts -->
+    <script>delete module.exports</script>
+    <script src="./vendor/jquery-3.1.1.js"></script>
+    <script src="./js/window.js" charset="utf-8"></script>
+    <script src="./js/file_output.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="container">Welcome Electron!</div>
+  <script>
+
+     // require("./components/firstForm");
+     require("./components/Router");
+  </script>
+  <script>      
+      var clientHeight = document.documentElement.clientHeight;  
+      var aside=document.getElementById('aside')
+      var box=document.getElementById('box')
+      aside.style.height=clientHeight+"px";
+      box.style.height=(clientHeight-140)+"px";
+      $(function() {
+          $(window).scroll(function() {
+              var scrollHeight = $(document).scrollTop();  
+              if (scrollHeight>0){
+                  $('#aside>div').addClass('fixed');  
+              }
+              if (scrollHeight > 60) {
+                  $('.ant-affix').addClass('lighted');
+              } else {
+                  $('.ant-affix').removeClass('lighted');
+              }
+          });
+      })
+
+      $(function(){
+            $(".tab").each(function(){
+                $(this).click(function(){
+                    $(".tab").addClass("default").removeClass("selected");
+                    $(this).addClass("selected").removeClass("default");
+                })
+            });
+      })
+  </script>
+  </body>
+</html>

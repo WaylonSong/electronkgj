@@ -1,0 +1,188 @@
+body,html{
+	font-size: 14px;
+	height:100%;
+}
+.lf{
+	float: left;
+}
+.rt{
+	float:right;
+}
+.clear{
+	clear:both;
+}
+
+.nav{
+	padding:15px 0px 0px 15px;
+	position: relative;
+	z-index: 99;
+	font-size: 14px;
+	color:#222;
+}
+.nav li a{
+	color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-block;
+    width: 100%;
+    padding-left: 23px;
+}
+.nav li:not(.linkToIndex){
+	height: 25px;
+	line-height: 25px;
+	/*padding-left: 22px;*/
+}
+.selected{
+	background-color: #447740;
+}
+.default{
+	background-color: transparent;
+}
+.nav li:not(.linkToIndex):hover a{
+	/*color: #fff;*/
+	text-decoration:none;
+}
+.nav li:not(.linkToIndex):hover{
+	/*background-color: #447740;*/
+}
+.nav li i{
+	display: inline-block;
+	width:40px;
+	height:40px;
+	background:url(../images/atom-icon.png) no-repeat;
+	background-size:contain;
+	position: relative;
+	top:15px;
+	right:-15px;
+}
+
+.linkToIndex{
+	height:80px;
+	line-height: 80px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+#session{
+	margin:5px;
+	width:75%;
+	height:100%;
+	padding:40px 20px;
+	background-color: #fff;
+	border:1px solid #ddd;
+}
+
+div.ant-form-item-label{
+	white-space:pre-wrap;
+	padding-right: 5px;
+	padding-top: 5px;
+	line-height: 25px;
+}
+.tdLable{
+	padding:8px 4px 8px 12px;
+    width: 23px;
+    height: 30px;
+    word-wrap:break-word;
+    border:1px solid #888;
+}
+div.ant-form-item :not(.ant-form)>.ant-form-item, div.ant-form-item{
+	margin-bottom: 0;
+}
+
+/*去掉input边框
+.ant-input{
+	border: none;
+}*/
+.trStyle{
+	/*width:95%;*/
+/*	border:1px solid #888;*/
+}
+.tdInput{
+	width:100%;
+	border:1px solid #888;
+	position: relative;
+}
+.tdTitle{
+	padding:8px;
+	text-align: center;
+	white-space: nowrap;
+}
+/*placeholder换行问题 未实现*/
+#text1::-webkit-input-placeholder:after {
+    color:#666;
+    content:"Line 1\A Line 2\A Line 3\A";
+}
+.border_bottom{
+	border-bottom:1px solid #ddd; 
+}
+/*.border_bottom table tr td,.border_bottom table tr th{
+	border: 1px solid #ddd;
+}*/
+#secretPersonMng tbody tr td,#secretPersonMng tbody tr th{
+	border:1px solid #ddd;
+}
+.commitment{
+	text-indent:25px;
+	padding:20px 10px 150px 10px;
+	width:90%;
+	text-align: left;
+}
+.signature{
+	float: right;
+	margin-bottom: 50px;
+}
+
+.lighted {
+	background-color: #f5f5f5;
+	transition:all .5s;
+	padding:8px 0px 5px 0px;
+}
+.fixed{
+    position:fixed;
+    width:280px;
+    height: 1000px;
+    background-color: #f5f5f5;
+    top:0px;
+    left:0px; 
+}
+
+li.linkToIndex a{
+	font-size: 14px;
+	color: #000;
+}
+div.ant-layout-sider{
+	min-width: 280px;
+}
+div.ant-layout{
+	background-color: #fff;
+}
+#homeHeader{
+	margin-left:330px; 
+}
+.expBtn{
+	width: 100%;
+	height: 100%;
+	background-color: #ddd;
+}
+
+/*homepage*/
+#homebg{
+	background: url(../images/1.png);
+	background-size: cover;
+
+}
+#box{
+	width:85%;
+	height: 1000px;
+	margin:70px auto;
+	position: relative;
+}
+.colorLump{
+	width:200px;
+	height: 200px;
+	background-color: #91C556;
+}
+#footer{
+	position: absolute;
+	bottom: 0;
+	left:33%;
+}
