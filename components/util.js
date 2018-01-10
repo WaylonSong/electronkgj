@@ -1,5 +1,6 @@
 var util = {};
 var fs=require('fs');
+var path = require('path');
 var stat=fs.stat;
 util.copyDir=function(src,dst){
     //读取目录
@@ -54,11 +55,23 @@ util.MultLineTable = function(MultLineTableData,newdata){
 }
 
 util.exportWord = function(data){
+    var dst = path.resolve(__dirname, '..');
+    if(!fs.existsSync(dst+'/上传附件')){
+        fs.mkdirSync(dst+'/上传附件');
+        var imageDirs = [ '公司章程', '营业执照', '保密资质' ]
+        for(var i in imageDirs){
+            fs.mkdirSync(dst+'/上传附件/'+imageDirs[i]);
+        }
+    }
+    if(!fs.existsSync(dst+'/导出文件')){
+        fs.mkdirSync(dst+'/导出文件');
+    }
+    if(!fs.existsSync(dst+'/dist')){
+        fs.mkdirSync(dst+'/dist');
+    }
     return new Promise(function(resolve, reject){
         var JSZip = require('jszip');
         var Docxtemplater = require('docxtemplater');
-        var fs = require('fs');
-        var path = require('path');
         //Load the docx file as a binary
         var content = fs
             .readFileSync(path.resolve(__dirname, '../template/inputTempl.docx'), 'binary');

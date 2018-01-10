@@ -20,6 +20,9 @@ imgUtil.addImg = function(originPath,baseName){
 };
 imgUtil.loadImg= function(dirPath){
     var urls= path.resolve(__dirname, "../"+dirPath);
+    if(!fs.existsSync(urls)){
+        return [];
+    }
     var fileList = fs.readdirSync(urls);
     var wrappedFileList=fileList.map(function(i,index){
         var imgInfo={

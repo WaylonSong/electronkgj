@@ -34,7 +34,7 @@ electron.app.once('ready', function () {
     // Don't show the window until it ready, this prevents any white flickering
     show: false
   })
-  window.setMenu(null) //隐藏菜单栏,但是隐藏之后控制台也打不开了
+  // window.setMenu(null) //隐藏菜单栏,但是隐藏之后控制台也打不开了
   window.on('closed', function () {
     console.log('be closed')
     window = null
