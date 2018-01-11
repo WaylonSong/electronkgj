@@ -9,6 +9,7 @@ import {ExportButton} from './ExportButton';
 import WrappedInlineTable from './InlineTable';
 import SecretPersonMng from './SecretPersonMng';
 import MultLineTable from './MultLineTable';
+import imgUtil from './imgUtil';
 import moment from 'moment';
 moment.locale('zh-cn');
 const { MonthPicker, RangePicker } = DatePicker;
@@ -192,8 +193,10 @@ class FirstForm extends React.Component {
   }
   retrieveFormData(){
     var result = {};
+    //检查是否上传附件
+    var checkdFile=window.imgUtil.check("上传附件/");
     this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
+      if (!err&&checkdFile) {
         result = values;
         localStorage.setItem("list",JSON.stringify(values));
       }else{

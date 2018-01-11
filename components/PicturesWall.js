@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import ReactDOM from 'react-dom'
 import { Form,Upload, Icon, Modal, Button,message} from 'antd';
+var path = require('path');
 const FormItem = Form.Item;
 class YyzzUpLoad extends React.Component {
   constructor(props){
@@ -35,6 +36,13 @@ class YyzzUpLoad extends React.Component {
         introduct="公司章程上传要求：最新年检营业执照副本原件扫描件  或  副本复印件加盖公司公章的原件扫描件，文件不对外展示，若有疑虑，请在文件标注“仅作为谷瀑审核用，不得用于任何商业用途”如上传遇到问题可发送到工商审核QQ。";
      }
      var files = window.imgUtil.loadImg("上传附件/"+this.baseName);
+     var imgsExt={".bmp":"",".jpg":"",".png":"",".icon":"",".gif":"",".svg":"",".psd":""}; //例举常用图片格式
+     files.map(function(file){
+        var ext=path.extname(file.name);//获取后缀
+        if(imgsExt[ext]==undefined){
+           file.thumbUrl="D:/electron/electronkgj/images/folder.jpg";
+        }
+     });
      this.setState({
         title,
         fileList:files,
@@ -71,12 +79,28 @@ class YyzzUpLoad extends React.Component {
       originPath = file.originFileObj.path;
       const fullFileName = window.imgUtil.addImg(originPath, this.baseName); //originPath为图片的原始路径
       const currentFileName = fullFileName.substring(fullFileName.lastIndexOf('\\')+1, fullFileName.length) // 斜杠要换成变量
+      var baseUrl=window.__dirname.replace(/\\/g, "/") //path.dirname()原始路径是啥
+      var folderImgPath=baseUrl+"/images/folder.jpg"; //设置不是图片类型文件的显示图片地址
+      var imgsExt=[".bmp",".jpg",".png",".tiff",".icon",".gif",".pcx",".tga",".exif",".fpx",".svg",".psd",".cdr",".pcd",".dxf",".ufo",".eps",".ai",".raw",".WMF"]; //例举常用图片格式
+      var ext=path.extname(fullFileName);
+      var flag=false;
+      var imgUrL;
+      for(var i in imgsExt){
+          if(imgsExt[i]==ext){
+             flag=true;
+          }
+      }  
+      if(flag){
+        imgUrL=fullFileName
+      }else{
+        imgUrL=folderImgPath
+      }    
       var imgInfo={
           uid: -(fileList.length+1),
           name: currentFileName,
           status: 'done',
-          url: fullFileName,
-          thumbUrl: fullFileName,
+          url:fullFileName,
+          thumbUrl:imgUrL,
       }
       newList.push(imgInfo);
     }

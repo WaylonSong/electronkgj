@@ -43,4 +43,17 @@ imgUtil.deleteImg= function(url){
         console.log("图片不存在");
     }
 }
+imgUtil.check= function(dirPath){
+    var files = fs.readdirSync(dirPath);
+    var status=true;
+    files.forEach(function (item, index) {
+        var file=fs.readdirSync(dirPath+item);
+        // console.log(file.length);
+        if(file.length==0){
+            status=false;
+            return;
+        }
+    })
+    return status
+};
 exports = module.exports = imgUtil;
