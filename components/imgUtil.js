@@ -44,16 +44,16 @@ imgUtil.deleteImg= function(url){
     }
 }
 imgUtil.check= function(dirPath){
-    var files = fs.readdirSync(dirPath);
-    var status=true;
-    files.forEach(function (item, index) {
-        var file=fs.readdirSync(dirPath+item);
-        // console.log(file.length);
-        if(file.length==0){
-            status=false;
-            return;
+    const basePath = path.resolve(__dirname, '../上传附件');
+    const subDirs = ["营业执照", "保密资质"];
+    var isValid = true;
+    for(var i in subDirs){
+        files = fs.readdirSync(basePath + '/' + subDirs[i])
+        if(files.length == 0){
+            isValid = false;
+            break;
         }
-    })
-    return status
+    }
+    return isValid;
 };
 exports = module.exports = imgUtil;

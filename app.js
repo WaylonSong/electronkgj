@@ -130,7 +130,6 @@ var menuArray = [
 // Wait until the app is ready
 electron.app.once('ready', function () {
   Menu.setApplicationMenu(Menu.buildFromTemplate(menuArray));
-  console.log(menuArray)
   // Create a new window
   window = new electron.BrowserWindow({
     // Set the initial width to 800px
