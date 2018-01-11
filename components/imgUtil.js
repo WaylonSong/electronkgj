@@ -43,4 +43,4 @@ imgUtil.deleteImg= function(url){
         console.log("图片不存在");
     }
 }
-export default imgUtil;
+exports = module.exports = imgUtil;

@@ -184,6 +184,6 @@ util.zipAndCrypto = function(fileName,souceDir,targetDir, companyName){
 util.echo = function(data){
     
 }
-export default util;
+exports = module.exports = util;
 
 

@@ -4,7 +4,6 @@ import React, {
 } from 'react';
 import ReactDOM from 'react-dom'
 import { Form,Upload, Icon, Modal, Button,message} from 'antd';
-import imgUtil from './imgUtil';
 const FormItem = Form.Item;
 class YyzzUpLoad extends React.Component {
   constructor(props){
@@ -35,7 +34,7 @@ class YyzzUpLoad extends React.Component {
         title = '公司章程上传'
         introduct="公司章程上传要求：最新年检营业执照副本原件扫描件  或  副本复印件加盖公司公章的原件扫描件，文件不对外展示，若有疑虑，请在文件标注“仅作为谷瀑审核用，不得用于任何商业用途”如上传遇到问题可发送到工商审核QQ。";
      }
-     var files = imgUtil.loadImg("上传附件/"+this.baseName);
+     var files = window.imgUtil.loadImg("上传附件/"+this.baseName);
      this.setState({
         title,
         fileList:files,
@@ -66,11 +65,11 @@ class YyzzUpLoad extends React.Component {
             }
             return newList
         });
-        imgUtil.deleteImg(file.url);
+        window.imgUtil.deleteImg(file.url);
     }
     if (file.status == 'uploading') {
       originPath = file.originFileObj.path;
-      const fullFileName = imgUtil.addImg(originPath, this.baseName); //originPath为图片的原始路径
+      const fullFileName = window.imgUtil.addImg(originPath, this.baseName); //originPath为图片的原始路径
       const currentFileName = fullFileName.substring(fullFileName.lastIndexOf('\\')+1, fullFileName.length) // 斜杠要换成变量
       var imgInfo={
           uid: -(fileList.length+1),

@@ -6,23 +6,29 @@
   "main": "app.js",
   "scripts": {
     "start": "electron app.js",
-    "packager": "electron-packager . kgj --version=1.7.9 --out=dist/ --overwrite --ignore=node_modules/electron-* --ignore=node_modules/.bin --ignore=.git --ignore=dist --prune"
+    "watch": "watchify app/entry.js -t babelify -o public/js/bundle.js --debug --verbose",
+    "package": "npm-run-all package:*",
+    "package:mac": "electron-packager . 军工保密资格认定填报系统 --overwrite --platform=darwin --arch=x64 --out=out ",
+    "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out ",
+    "packager": "electron-packager .  --version=1.7.9 --out=dist/ --overwrite --ignore=node_modules/electron-* --ignore=node_modules/.bin --ignore=.git --ignore=dist --prune"
   },
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.3.15",
-    "babel-loader": "^6.2.0",
+    "babel": "^6.5.2",
     "babel-plugin-transform-es2015-spread": "^6.8.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-plugin-transform-class-properties": "^6.22.0",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-runtime": "^6.22.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
-    "babel-register": "^6.3.13",
-    "electron": "^1.8.1",
-    "electron-prebuilt-compile": "^1.8.1"
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "babelify": "^7.3.0",
+    "electron": "1.7.9",
+    "electron-compiler": "^1.0.9",
+    "electron-packager": "^8.6.0",
+    "electron-winstaller": "^2.2.0",
+    "watchify": "^3.9.0"
   },
   "dependencies": {
     "antd": "^2.8.3",

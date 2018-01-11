@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom'
 import { Form, Row, Col, Input, Button,Modal, Icon ,Radio ,InputNumber,Affix, DatePicker,Layout } from 'antd';
 import { Router, Route, hashHistory } from 'react-router';
 import {ExportButton} from './ExportButton';
-import EditableTable from './EditableTable';
 import WrappedInlineTable from './InlineTable';
 import SecretPersonMng from './SecretPersonMng';
 import MultLineTable from './MultLineTable';
