@@ -32,6 +32,12 @@ exports.encrypt = (fileName, souceDir, targetDir, companyName) => {
 			input.on('end', () => {
 			  	var status2 = archive(`${companyName}_导出申请文件`, targetDir+'/tmp', targetDir);
 				status2.on('close', function(){
+					var files = fs.readdirSync(targetDir+'/tmp');//读取该文件夹
+			        files.forEach(function(file){
+			            var stats = fs.statSync(targetDir+'/tmp'+'/'+file);
+		                fs.unlinkSync(targetDir+'/tmp'+'/'+file);
+			        });
+					fs.rmdirSync(targetDir+'/tmp');
 					resolve(1);  
 				})
 			});
