@@ -33,18 +33,19 @@
   "dependencies": {
     "antd": "^2.8.3",
     "archiver": "^2.1.0",
+    "babel-plugin-import": "^1.4.0",
+    "docxtemplater": "^3.1.5",
+    "electron-json-storage": "^4.0.2",
+    "jszip": "^2.6.1",
+    "node-ipc": "^9.1.1",
     "react": "^15.4.0",
     "react-addons-transition-group": "^15.4.0",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.4.0",
     "react-redux": "^4.2.1",
+    "react-router": "^3.x",
     "react-router-dom": "^4.2.2",
     "reactstrap": "^2.6.1",
-    "redux": "^3.2.1",
-    "babel-plugin-import": "^1.4.0",
-    "docxtemplater": "^3.1.5",
-    "node-ipc": "^9.1.1",
-    "jszip": "^2.6.1",
-    "react-router": "^3.x"
+    "redux": "^3.2.1"
   }
 }

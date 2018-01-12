@@ -109,7 +109,7 @@ class FirstForm extends React.Component {
       this.localStorageData={};
   }
   componentWillMount(){
-      var dt = JSON.parse(localStorage.getItem("list"));
+      var dt = JSON.parse(window.currentContent);
       // console.log(dt);
       if(dt){
         this.localStorageData = dt;
@@ -131,6 +131,8 @@ class FirstForm extends React.Component {
         // console.log(values)
         this.props.form.setFields(values); 
       }
+  }
+  componentDidMount(){
   }
   genSingleLineTable(data){
       const { getFieldDecorator } = this.props.form;
@@ -279,6 +281,7 @@ class FirstForm extends React.Component {
     // console.log(this.props.form.getFieldsValue());
     e.preventDefault();    
     this.props.form.validateFieldsAndScroll((err, values) => {
+      window.saveContent(JSON.stringify(values));
       if (!err) {
         Modal.info({
           title: '提示信息',
@@ -290,8 +293,6 @@ class FirstForm extends React.Component {
           content: '保存成功，但仍有未填写项',
         });
       }
-      console.log('结果', values);
-      localStorage.setItem("list",JSON.stringify(values));
     });
   }
   render() {

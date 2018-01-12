@@ -8,6 +8,7 @@ var util = require('./components/util')
 var ipcMain = electron.ipcMain;
 ipcMain.on('export',function(event, arg0){
     var exportPromise = util.exportWord(arg0); 
+    console.log(arg0)
     exportPromise.then(function(){
         // alert("导出成功！");
         dialog.showMessageBox({
@@ -101,7 +102,7 @@ var menuArray = [
 ];
 // Wait until the app is ready
 electron.app.once('ready', function () {
-  Menu.setApplicationMenu(Menu.buildFromTemplate(menuArray));
+  // Menu.setApplicationMenu(Menu.buildFromTemplate(menuArray));
   // Create a new window
   window = new electron.BrowserWindow({
     // Set the initial width to 800px
@@ -116,11 +117,11 @@ electron.app.once('ready', function () {
   })
   window.setMenu(null) //隐藏菜单栏,但是隐藏之后控制台也打不开了
   window.on('closed', function () {
-    console.log('be closed')
-    window = null
+    window = null;
+    electron.app.exit();
+    console.log('closed');
   })
   window.on('close', function (e) {
-  	console.log("closing");
     var t = dialog.showMessageBox({
     	cancelId:88,
     	type:"warning",
@@ -132,7 +133,6 @@ electron.app.once('ready', function () {
   })
 
   window.on('export', function (e) {
-    console.log("export");
     dialog.showMessageBox({
       cancelId:88,
       type:"info",
