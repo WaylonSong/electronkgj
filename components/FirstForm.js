@@ -3,7 +3,7 @@ import React, {
   PropTypes
 } from 'react';
 import ReactDOM from 'react-dom'
-import { Form, Row, Col, Input, Button,Modal, Icon ,Radio ,InputNumber,Affix, DatePicker,Layout } from 'antd';
+import { Form, Row, Col, Input, Button,Modal, Icon ,Radio ,InputNumber,Affix, DatePicker,Layout,Select} from 'antd';
 import { Router, Route, hashHistory } from 'react-router';
 import {ExportButton} from './ExportButton';
 import WrappedInlineTable from './InlineTable';
@@ -19,6 +19,7 @@ const FormItem = Form.Item;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 const { TextArea } = Input;
+const Option = Select.Option;
 const WrappedSecretPersonMng = Form.create()(SecretPersonMng);
 const WrappedMultLineTable = Form.create()(MultLineTable);
 class FirstForm extends React.Component {
@@ -393,7 +394,7 @@ class FirstForm extends React.Component {
                   )}
                 </FormItem>          
                 <Row>
-                  <Col span={12}  style={{ 'block' : 'none' }}>
+                  <Col span={12}  style={{'block':'none'}}>
                     <FormItem
                       {...smallFormItemLayout}
                       label="单位性质"
@@ -403,7 +404,17 @@ class FirstForm extends React.Component {
                           required: true, message: '不能为空',
                         }],
                       })(
-                        <TextArea placeholder="按照营业执照单位法人证书的内容填写" autosize/>
+                          <Select
+                            showSearch
+                            placeholder="==请选择=="
+                            optionFilterProp="children"
+                            filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                          >
+                            <Option value="国有企业">国有企业</Option>
+                            <Option value="国有控股企业">国有控股企业</Option>
+                            <Option value="合资企业">合资企业</Option>
+                            <Option value="私营企业">私营企业</Option>
+                          </Select>
                       )}
                     </FormItem>
                   </Col>

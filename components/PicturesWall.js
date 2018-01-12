@@ -37,10 +37,12 @@ class YyzzUpLoad extends React.Component {
      }
      var files = window.imgUtil.loadImg("上传附件/"+this.baseName);
      var imgsExt={".bmp":"",".jpg":"",".png":"",".icon":"",".gif":"",".svg":"",".psd":""}; //例举常用图片格式
+     var sourcePath=window.__dirname.replace(/\\/g, "/");
+     var folderImgPath=sourcePath+"/images/folder.jpg"; //设置不是图片类型文件的显示图片地址
      files.map(function(file){
         var ext=path.extname(file.name);//获取后缀
         if(imgsExt[ext]==undefined){
-           file.thumbUrl="D:/electron/electronkgj/images/folder.jpg";
+           file.thumbUrl=folderImgPath;
         }
      });
      this.setState({
@@ -79,7 +81,7 @@ class YyzzUpLoad extends React.Component {
       originPath = file.originFileObj.path;
       const fullFileName = window.imgUtil.addImg(originPath, this.baseName); //originPath为图片的原始路径
       const currentFileName = fullFileName.substring(fullFileName.lastIndexOf('\\')+1, fullFileName.length) // 斜杠要换成变量
-      var baseUrl=window.__dirname.replace(/\\/g, "/") //path.dirname()原始路径是啥
+      var baseUrl=window.__dirname.replace(/\\/g, "/");
       var folderImgPath=baseUrl+"/images/folder.jpg"; //设置不是图片类型文件的显示图片地址
       var imgsExt=[".bmp",".jpg",".png",".tiff",".icon",".gif",".pcx",".tga",".exif",".fpx",".svg",".psd",".cdr",".pcd",".dxf",".ufo",".eps",".ai",".raw",".WMF"]; //例举常用图片格式
       var ext=path.extname(fullFileName);
