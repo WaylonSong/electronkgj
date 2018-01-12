@@ -9,7 +9,7 @@
     "watch": "watchify app/entry.js -t babelify -o public/js/bundle.js --debug --verbose",
     "package": "npm-run-all package:*",
     "package:mac": "electron-packager . 军工保密资格认定填报系统 --overwrite --platform=darwin --arch=x64 --out=out ",
-    "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out ",
+    "package:win": "electron-packager . 军工保密资格认定填报系统 --overwrite --platform=win32 --arch=ia32 --out=out ",
     "packager": "electron-packager .  --version=1.7.9 --out=dist/ --overwrite --ignore=node_modules/electron-* --ignore=node_modules/.bin --ignore=.git --ignore=dist --prune"
   },
   "license": "ISC",
