@@ -97,34 +97,6 @@ var menuArray = [
                 role: 'selectall'
             }
         ]
-    },
-    {
-        label: 'View',
-        submenu: [
-            {
-                label: 'Reload',
-                accelerator: 'CmdOrCtrl+R',
-                click: function(item, focusedWindow) {
-                    if (focusedWindow) {
-                        focusedWindow.reload();
-                    }
-                }
-            },
-            {
-                label: 'Toggle Developer Tools',
-                accelerator: (function() {
-                    if (process.platform === 'darwin') {
-                        return 'Alt+Command+I';
-                    }
-                    return 'Ctrl+Shift+I';
-                }()),
-                click: function(item, focusedWindow) {
-                    if (focusedWindow) {
-                        focusedWindow.toggleDevTools();
-                    }
-                }
-            }
-        ]
     }
 ];
 // Wait until the app is ready
@@ -142,7 +114,7 @@ electron.app.once('ready', function () {
     // Don't show the window until it ready, this prevents any white flickering
     show: false
   })
-  // window.setMenu(null) //隐藏菜单栏,但是隐藏之后控制台也打不开了
+  window.setMenu(null) //隐藏菜单栏,但是隐藏之后控制台也打不开了
   window.on('closed', function () {
     console.log('be closed')
     window = null
