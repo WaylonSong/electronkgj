@@ -109,7 +109,11 @@ class FirstForm extends React.Component {
       this.localStorageData={};
   }
   componentWillMount(){
-      var dt = JSON.parse(window.currentContent);
+      var dt;
+      if(window.currentContent){
+        console.log(window.currentContent);
+        dt = JSON.parse(window.currentContent);
+      }
       // console.log(dt);
       if(dt){
         this.localStorageData = dt;

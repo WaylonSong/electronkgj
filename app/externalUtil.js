@@ -3,11 +3,16 @@ var {ipcRenderer} = require('electron');
 const os = require('os');
 const storage = require('electron-json-storage');
 storage.setDataPath(os.tmpdir());
+console.log(storage.getDataPath())
 storage.get('content', function(error, data) {
   if (error) {
-  	console.log('localStorage error')
+  	window.currentContent = "";
+  }else{
+  	if(typeof data == 'object'){
+  		window.currentContent = "";
+  	}else
+  		window.currentContent = data;
   }
-  window.currentContent = data;
 });
 
 $(function() {
