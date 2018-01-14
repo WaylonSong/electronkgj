@@ -50,7 +50,6 @@ const Home = () => (
 				<div style={{float:'right',marginTop:80}}>
 			    	<div style={{width:200,height:50,color:'#fff',textAlign:'center',fontSize:16,padding:12,backgroundColor:'#62B0F8',margin:'20px auto',borderRadius:10}}><Link to="/fillInApp" style={{color:'#fff'}}>申请书填报</Link></div>
 			    	<div style={{width:200,height:50,color:'#fff',textAlign:'center',fontSize:16,padding:12,backgroundColor:'#87C2F9',margin:'20px auto',borderRadius:10}}><Link to="/upLoadyyzz" style={{color:'#fff'}}>企业证照上传</Link></div>
-			    	<div style={{width:200,height:50,color:'#fff',textAlign:'center',fontSize:16,padding:12,backgroundColor:'#BFDEFF',margin:'20px auto',borderRadius:10}}>填报说明</div>
 		    	</div>
 		    	<div style={{clear:'both'}}></div>
 		    	<div id="footer">

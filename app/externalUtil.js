@@ -38,4 +38,17 @@ $(function() {
 		  if (error) throw error;
 		});
 	}
+	window.openExportDIr = function(content){
+		var path = require('path');
+		var srcPath = path.resolve(__dirname, '../上传附件')
+		var command = 'start "" "' +srcPath+'"'; 
+        require('child_process').exec(command); 
+	}
+	window.openReadmeDir = function(content){
+		console.log('readme')
+		var path = require('path');
+		var srcPath = path.resolve(__dirname, '../说明')
+		var command = 'start "" "' +srcPath+'"'; 
+        require('child_process').exec(command); 
+	}
 })

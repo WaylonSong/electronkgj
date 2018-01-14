@@ -370,8 +370,9 @@ class FirstForm extends React.Component {
          <Content>
             <Form id="content" style={{float:'right',position:'relative'}} onSubmit={this.handleSubmit.bind(this)}>
               <Affix style={{width:'100%',height:'33px',marginTop:'6px'}}>              
+                   <Button style={{float:'right',marginLeft:'3px'}} type="primary" onClick={window.openExportDIr}>打开导出位置</Button>                  
                    <Button style={{float:'right',marginLeft:'3px'}} type="primary" htmlType="submit">保存</Button>                  
-                   <ExportButton  data={this.retrieveFormData.bind(this)} className="expBtn"/>                
+                   <ExportButton  style={{float:'right',marginLeft:'3px'}} data={this.retrieveFormData.bind(this)} className="expBtn"/>                
               </Affix>
               <div style={{border:'1px solid #888'}}>
                 <FormItem
