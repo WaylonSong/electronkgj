@@ -32,7 +32,7 @@ $(function() {
 	}
 	window.openExportDIr = function(content){
 		var path = require('path');
-		var srcPath = path.resolve(__dirname, '../上传附件')
+		var srcPath = path.resolve(__dirname, '../导出文件')
 		var command = 'start "" "' +srcPath+'"'; 
         require('child_process').exec(command); 
 	}
