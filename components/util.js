@@ -114,11 +114,12 @@ util.exportWord = function(data){
         util.MultLineTable("collaborationMng",newdata);
         util.MultLineTable("workingFundsMng",newdata);
         //处理多行输入换行问题
-        var lineKeys = ['chargeOfSecretLeader','mianLegalBody','applyReason','summaryOfCompany','secretCommit','centralizingMng','secretPerson','secretDepartment','otherLeader','workFileMng','kpAndRewardsAndPunishments','secretCheck','foreignNationals','TestMng','MeetingMng','newsMng','denseProductMng','countriesSys','content','specialSystem','basicSystem','secretSituation','workSituation_0', 'workSituation_1','tightMng_0','tightMng_1','tightMng_2','tightMng_3','theImportSecretMng_0','theImportSecretMng_1','sysAndEquiAndStorageMng_0','sysAndEquiAndStorageMng_1','sysAndEquiAndStorageMng_2','sysAndEquiAndStorageMng_3','sysAndEquiAndStorageMng_4','sysAndEquiAndStorageMng_5','collaborationMng_0','collaborationMng_1','workingFundsMng_0','workingFundsMng_1'];
+        var lineKeys = ['chargeOfSecretLeader','mianLegalBody','applyReason','summaryOfCompany','secretCommit','centralizingMng','secretPerson','secretDepartment','otherLeader','workFileMng','kpAndRewardsAndPunishments','secretCheck','foreignNationals','testMng','meetingMng','newsMng','denseProductMng','countriesSys','content','specialSystem','basicSystem','secretSituation','workSituation_0', 'workSituation_1','tightMng_0','tightMng_1','tightMng_2','tightMng_3','theImportSecretMng_0','theImportSecretMng_1','sysAndEquiAndStorageMng_0','sysAndEquiAndStorageMng_1','sysAndEquiAndStorageMng_2','sysAndEquiAndStorageMng_3','sysAndEquiAndStorageMng_4','sysAndEquiAndStorageMng_5','collaborationMng_0','collaborationMng_1','workingFundsMng_0','workingFundsMng_1'];
         for( var i = 0; i < lineKeys.length; i++){ 
             var lines = newdata[lineKeys[i]].split('\n');
             newdata[lineKeys[i]] = lines;
         } 
+
         // newdata.products= [
         //     { name :"Windows", price: 100},
         //     { name :"Mac OSX", price: 200},

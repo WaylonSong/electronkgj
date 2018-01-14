@@ -8,7 +8,7 @@ var util = require('./components/util')
 var ipcMain = electron.ipcMain;
 ipcMain.on('export',function(event, arg0){
     var exportPromise = util.exportWord(arg0); 
-    console.log(arg0)
+    // console.log(arg0)
     exportPromise.then(function(){
         // alert("导出成功！");
         dialog.showMessageBox({

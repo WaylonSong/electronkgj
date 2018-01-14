@@ -299,6 +299,21 @@ class FirstForm extends React.Component {
       }
     });
   }
+  exportZip(e){
+    // console.log(this.props.form.getFieldsValue());
+    e.preventDefault();    
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      window.saveContent(JSON.stringify(values));
+      if (err) {
+        Modal.info({
+          title: '提示信息',
+          content: '请完整填写表格再导出！',
+        });
+      }else{
+        window.exportZip(values);
+      }
+    });
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
@@ -372,7 +387,7 @@ class FirstForm extends React.Component {
               <Affix style={{width:'100%',height:'33px',marginTop:'6px'}}>              
                    <Button style={{float:'right',marginLeft:'3px'}} type="primary" onClick={window.openExportDIr}>打开导出位置</Button>                  
                    <Button style={{float:'right',marginLeft:'3px'}} type="primary" htmlType="submit">保存</Button>                  
-                   <ExportButton  style={{float:'right',marginLeft:'3px'}} data={this.retrieveFormData.bind(this)} className="expBtn"/>                
+                   <Button style={{float:'right',marginLeft:'3px'}} type="primary" onClick={this.exportZip.bind(this)}>导出文件</Button>                  
               </Affix>
               <div style={{border:'1px solid #888'}}>
                 <FormItem
