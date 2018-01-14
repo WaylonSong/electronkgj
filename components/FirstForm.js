@@ -96,8 +96,8 @@ class FirstForm extends React.Component {
                         ]  
       //新闻、会议、外场试验管理
       this.newsAndMeetingAndTestMng=[{"title":"新闻宣传管理","colName":"newsMng","headings":"采取了哪些保密管理措施","placeholder":""},
-                                     {"title":"涉密会议管理","colName":"MeetingMng","headings":"采取了哪些保密管理措施，是否符合国家有关保密标准","placeholder":""},
-                                     {"title":"外场试验管理","colName":"TestMng","headings":"采取了哪些保密管理措施","placeholder":""},
+                                     {"title":"涉密会议管理","colName":"meetingMng","headings":"采取了哪些保密管理措施，是否符合国家有关保密标准","placeholder":""},
+                                     {"title":"外场试验管理","colName":"testMng","headings":"采取了哪些保密管理措施","placeholder":""},
                         ] 
       //保密、考核、工作档案管理
       this.secretAndKpAndFileMng= [{"title":"保密检查","colName":"secretCheck","headings":"采取了哪些保密管理措施","placeholder":""},
