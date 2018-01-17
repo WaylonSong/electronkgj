@@ -104,7 +104,7 @@ util.exportWord = function(data){
             total+=i;
         });
         newdata["total"]=total;
-        newdata["companyCreateTime"]=newdata["companyCreateTime"]['_d'].substr(0,10);
+        newdata["companyCreateTime"]=newdata["companyCreateTime"].format('YYYY-MM-DD');
         newdata["content"]=newdata.secretStaffMng.content;
         //4.多行输入框
         util.MultLineTable("workSituation",newdata);
@@ -159,7 +159,7 @@ util.exportWord = function(data){
         promise.then(function(){
             //5.写json文件
             var writeFilePath =  path.resolve(__dirname, '../dist/',fileName,fileName+'.json');
-            data["companyCreateTime"]=data["companyCreateTime"]['_d'].substr(0,10);
+            data["companyCreateTime"]=data["companyCreateTime"].format('YYYY-MM-DD');
 
             fs.writeFileSync(writeFilePath, JSON.stringify(data));
             //6.调用压缩和加密
